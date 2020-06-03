@@ -1,4 +1,4 @@
-<!DOCTYPE html>{% load static %}
+<!DOCTYPE html>{% load static %} {% load tags %}
 <html>
   <head>
     <meta charset="UTF-8">
@@ -17,7 +17,31 @@
       <div class="row">
         <h1 class="col s12">Инфляция в России</h1>
         <div class="col s12 m8">
-        
+          <table>
+
+            <tr>
+            {% for name in list1 %}
+              {% if list1.13 == name %}
+                <th bgcolor='#828582'>{{name}}</th>
+              {% endif %}
+              {% if list1.13 != name %}
+                <th>{{name}}</th>
+              {% endif %}
+             {% endfor %}
+            </tr>
+          {% for k in list %}
+            <tr>
+            {% for value in k%}
+              {% if k.13 == value %}
+                <td bgcolor='#828582'>{{value}}</td>
+              {% endif %}
+              {% if k.13 != value %}
+                <td bgcolor={{value|background}}>{{value}}</td>
+              {% endif %}
+            {% endfor %}
+            </tr>
+          {% endfor %}
+          </table>
         <!-- Ваша логика -->
 
         </div>
