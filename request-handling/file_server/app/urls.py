@@ -1,6 +1,6 @@
 from django.urls import path
 
-from app.views import file_list, file_content
+from app.views import FileList, file_content
 
 urlpatterns = [
     path('', file_list, name='file_list'),

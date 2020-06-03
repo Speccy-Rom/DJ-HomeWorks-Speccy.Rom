@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.http import HttpResponseNotFound
 from app.get_info import get_only_files, get_file_path
 
+
 def file_list(request, date=None):
     template_name = 'index.html'
 
@@ -44,4 +45,3 @@ def file_content(request, name):
         'file_content.html',
         context={'file_name': name, 'file_content': content}
     )
-
