@@ -15,4 +15,10 @@ class CalcForm(forms.Form):
 
     def clean(self):
         # общая функция валидации
-        return self.cleaned_data
+        self.cleaned_data = super().clean()
+        rate = self.cleaned_data.get('rate')
+        months_count = self.cleaned_data.get('months_count')
+        if rate and int(rate) < 12:
+            self.add_error('rate', 'Процентая ставка не может быть меньше 12%')
+        if months_count and int(months_count) < 4:
+            self.add_error('months_count', 'Число месяцев не может быть меньше 4')

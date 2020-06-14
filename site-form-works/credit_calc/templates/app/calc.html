@@ -11,6 +11,7 @@
 <body>
     <div class="left-margin width300">
         <form action="" method="GET">
+            {% csrf_token %}
             {% for field in form %}
             <p>{{ field.label_tag }}</p> {{ field }}
             {{ field.errors }}
