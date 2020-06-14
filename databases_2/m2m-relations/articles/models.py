@@ -14,3 +14,17 @@ class Article(models.Model):
 
     def __str__(self):
         return self.title
+
+class Scope(models.Model):
+    article = models.ManyToManyField(Article, through='Membership')
+    tematik = models.CharField(max_length=256, verbose_name='Название')
+    def __str__(self):
+        return self.tematik
+
+class Membership(models.Model):
+    article = models.ForeignKey(Article, on_delete=models.CASCADE)
+    scope = models.ForeignKey(Scope, on_delete=models.CASCADE)
+    is_main = models.BooleanField(verbose_name='основной', default=False)
+
+    def __str__(self):
+        return '{0}_{1}'.format(self.article, self.scope)

@@ -24,3 +24,8 @@ class Student(models.Model):
 
     def __str__(self):
         return self.name
+
+    def display_teachers(self):
+        return ', '.join([teacher.name for teacher in self.teacher.all()[:3]])
+
+    display_teachers.short_description = 'Учителя'
