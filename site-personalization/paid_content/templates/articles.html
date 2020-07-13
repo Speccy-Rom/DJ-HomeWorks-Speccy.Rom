@@ -9,9 +9,9 @@
             <h1>Список статей</h1>
         </div>
         <div class="articles">
-            <h3>Статья 1</h3>
-            <h3>Статья 2</h3>
-            <h3>Статья 3</h3>
+            {% for a in art %}
+            <h3><a href="/articles/{{a.id}}">{{a.title}}</a></h3>
+            {% endfor %}
         </div>
     </div>
 {% endblock %}
